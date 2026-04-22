@@ -160,7 +160,7 @@ const ClientsPage: React.FC = () => {
                   <div className="mt-2 flex justify-between items-center">
                     <p className="text-sm text-gray-600">Deuda:</p>
                     <p className={`text-lg font-bold ${deuda > 0 ? "text-red-600" : "text-green-600"}`}>
-                      ${deuda.toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+                      S/ {deuda.toLocaleString("es-PE", { maximumFractionDigits: 0 })}
                     </p>
                   </div>
                   <button

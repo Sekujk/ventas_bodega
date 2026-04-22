@@ -14,6 +14,29 @@ export const ventasService = {
     return data;
   },
 
+  async createVentasBatch(
+    clienteId: string | null,
+    items: Array<{ producto: string; precio: number }>
+  ) {
+    if (items.length === 0) {
+      throw new Error("No hay productos para guardar");
+    }
+
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    if (userError || !user) throw new Error("No autenticado");
+
+    const payload = items.map((item) => ({
+      cliente_id: clienteId,
+      producto: item.producto,
+      precio: item.precio,
+      user_id: user.id,
+    }));
+
+    const { data, error } = await supabase.from("ventas").insert(payload).select();
+    if (error) throw error;
+    return data;
+  },
+
   async getVentasByCliente(clienteId: string) {
     const { data, error } = await supabase
       .from("ventas")

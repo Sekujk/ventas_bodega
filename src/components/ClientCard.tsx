@@ -16,7 +16,7 @@ export const ClientCard: React.FC<ClientCardProps> = ({ cliente, deuda, onClick 
           {cliente.telefono && <p className="text-sm text-gray-600">{cliente.telefono}</p>}
         </div>
         <div className={`text-xl font-bold ${deuda > 0 ? "text-red-600" : "text-green-600"}`}>
-          ${deuda.toFixed(0)}
+          S/ {deuda.toFixed(0)}
         </div>
       </div>
     </div>

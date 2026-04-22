@@ -33,32 +33,19 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 flex items-center justify-center p-4">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-      </div>
-
-      {/* Card */}
-      <div className="relative card-elevated w-full max-w-md">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="text-5xl mb-4">📱</div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Ventas Bodega
-          </h1>
-          <p className="text-gray-600 mt-2">Gestión simple y rápida</p>
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white border border-gray-300 rounded-xl p-6 shadow-sm">
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-bold text-gray-900">Ventas Bodega</h1>
+          <p className="text-gray-600 mt-2 text-base">Ingreso simple y claro</p>
         </div>
 
-        {/* Error Alert */}
         {error && (
-          <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-600 rounded-lg">
-            <p className="text-red-700 font-semibold text-sm">{error}</p>
+          <div className="mb-4 p-3 bg-red-50 border border-red-300 rounded">
+            <p className="text-red-700 font-semibold">{error}</p>
           </div>
         )}
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <InputField
             label="Email"
@@ -82,23 +69,21 @@ const LoginPage: React.FC = () => {
           </LargeButton>
         </form>
 
-        {/* Toggle Auth Mode */}
-        <div className="mt-6 text-center border-t border-gray-200 pt-6">
-          <p className="text-gray-600 mb-3">
+        <div className="mt-6 text-center border-t border-gray-200 pt-5">
+          <p className="text-gray-600 mb-2">
             {isLogin ? "¿No tienes cuenta?" : "¿Ya tienes cuenta?"}
           </p>
           <button
             onClick={() => setIsLogin(!isLogin)}
-            className="font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+            className="font-semibold text-gray-900 hover:text-gray-700 transition-colors"
           >
             {isLogin ? "Crear una nueva" : "Ingresar"}
           </button>
         </div>
 
-        {/* Info */}
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-          <p className="text-xs text-gray-700">
-            💡 <strong>Prueba:</strong> Usa cualquier email para crear una cuenta de prueba
+        <div className="mt-5 p-3 bg-gray-50 rounded border border-gray-200">
+          <p className="text-sm text-gray-700">
+            Usa tu correo y contraseña para ingresar.
           </p>
         </div>
       </div>

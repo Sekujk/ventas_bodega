@@ -108,7 +108,7 @@ const QuickSalePage: React.FC = () => {
                 <strong>Resumen:</strong>
               </p>
               <p className="text-lg font-bold text-blue-900 mt-2">
-                {producto} — ${parseFloat(precio).toLocaleString('es-CO', { maximumFractionDigits: 0 })}
+                {producto} — S/ {parseFloat(precio).toLocaleString('es-PE', { maximumFractionDigits: 0 })}
               </p>
             </div>
           )}

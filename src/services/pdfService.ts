@@ -28,7 +28,7 @@ export interface PdfDeudaData {
  * Formatea moneda al formato colombiano
  */
 const formatMoney = (value: number): string => {
-  return `$${value.toLocaleString('es-CO', { maximumFractionDigits: 0 })}`;
+  return `S/ ${value.toLocaleString('es-PE', { maximumFractionDigits: 0 })}`;
 };
 
 /**

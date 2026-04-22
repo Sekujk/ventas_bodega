@@ -57,19 +57,19 @@ const PublicDebtPage: React.FC = () => {
           <div className="bg-white border-2 border-gray-300 rounded-lg p-4">
             <p className="text-xs text-gray-600 font-semibold">Total consumido</p>
             <p className="text-2xl font-bold text-gray-900">
-              ${consumido.toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+              S/ {consumido.toLocaleString("es-PE", { maximumFractionDigits: 0 })}
             </p>
           </div>
           <div className="bg-white border-2 border-gray-300 rounded-lg p-4">
             <p className="text-xs text-gray-600 font-semibold">Total pagado</p>
             <p className="text-2xl font-bold text-gray-900">
-              ${pagado.toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+              S/ {pagado.toLocaleString("es-PE", { maximumFractionDigits: 0 })}
             </p>
           </div>
           <div className={`rounded-lg p-4 border-2 ${saldo <= 0 ? "bg-green-100 border-green-400" : "bg-red-100 border-red-400"}`}>
             <p className="text-xs font-semibold">Saldo</p>
             <p className={`text-3xl font-bold ${saldo <= 0 ? "text-green-900" : "text-red-900"}`}>
-              ${Math.abs(saldo).toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+              S/ {Math.abs(saldo).toLocaleString("es-PE", { maximumFractionDigits: 0 })}
             </p>
           </div>
         </div>
@@ -93,7 +93,7 @@ const PublicDebtPage: React.FC = () => {
                     </p>
                   </div>
                   <p className="text-lg font-bold text-gray-900">
-                    ${Number(deuda.precio).toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+                    S/ {Number(deuda.precio).toLocaleString("es-PE", { maximumFractionDigits: 0 })}
                   </p>
                 </div>
               ))}

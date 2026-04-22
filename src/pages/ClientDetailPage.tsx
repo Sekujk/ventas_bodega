@@ -76,7 +76,7 @@ const ClientDetailPage: React.FC = () => {
     }
 
     if (parseFloat(montoPago) > saldo) {
-      error(`No puede pagar más que la deuda ($${saldo.toLocaleString("es-CO", { maximumFractionDigits: 0 })})`);
+      error(`No puede pagar más que la deuda (S/ ${saldo.toLocaleString("es-PE", { maximumFractionDigits: 0 })})`);
       return;
     }
 
@@ -128,7 +128,7 @@ const ClientDetailPage: React.FC = () => {
     toAscii(value).replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
 
   const buildDebtPdfBlob = () => {
-    const money = (value: number) => `$${value.toLocaleString("es-CO", { maximumFractionDigits: 0 })}`;
+    const money = (value: number) => `S/ ${value.toLocaleString("es-PE", { maximumFractionDigits: 0 })}`;
     
     let streamContent = "";
     
@@ -327,19 +327,19 @@ const ClientDetailPage: React.FC = () => {
             <div className="bg-gray-100 rounded p-3 border border-gray-300">
               <p className="text-xs text-gray-600 font-semibold">Debe</p>
               <p className="text-xl font-bold text-gray-900">
-                ${totalDeuda.toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+                S/ {totalDeuda.toLocaleString("es-PE", { maximumFractionDigits: 0 })}
               </p>
             </div>
             <div className="bg-gray-100 rounded p-3 border border-gray-300">
               <p className="text-xs text-gray-600 font-semibold">Pagó</p>
               <p className="text-xl font-bold text-gray-900">
-                ${totalPagado.toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+                S/ {totalPagado.toLocaleString("es-PE", { maximumFractionDigits: 0 })}
               </p>
             </div>
             <div className={`rounded p-3 border-2 ${saldo <= 0 ? "bg-green-100 border-green-400" : "bg-red-100 border-red-400"}`}>
               <p className="text-xs font-semibold">Saldo</p>
               <p className={`text-xl font-bold ${saldo <= 0 ? "text-green-900" : "text-red-900"}`}>
-                ${Math.abs(saldo).toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+                S/ {Math.abs(saldo).toLocaleString("es-PE", { maximumFractionDigits: 0 })}
               </p>
             </div>
           </div>
@@ -362,7 +362,7 @@ const ClientDetailPage: React.FC = () => {
               className="w-full px-3 py-3 border-2 border-gray-400 rounded text-lg font-semibold focus:outline-none focus:border-gray-600"
               disabled={saldo <= 0}
             />
-            <p className="text-xs text-gray-500 mt-1">Máximo: ${saldo.toLocaleString("es-CO", { maximumFractionDigits: 0 })}</p>
+            <p className="text-xs text-gray-500 mt-1">Máximo: S/ {saldo.toLocaleString("es-PE", { maximumFractionDigits: 0 })}</p>
           </div>
 
           {notification && (
@@ -413,7 +413,7 @@ const ClientDetailPage: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <p className="text-lg font-bold text-gray-900">
-                      ${deuda.precio.toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+                      S/ {deuda.precio.toLocaleString("es-PE", { maximumFractionDigits: 0 })}
                     </p>
                     <button
                       onClick={() => handleEliminarDeuda(deuda.id)}
@@ -449,7 +449,7 @@ const ClientDetailPage: React.FC = () => {
                     </p>
                   </div>
                   <p className="text-lg font-bold text-green-900">
-                    +${pago.monto.toLocaleString("es-CO", { maximumFractionDigits: 0 })}
+                    +S/ {pago.monto.toLocaleString("es-PE", { maximumFractionDigits: 0 })}
                   </p>
                 </div>
               ))}

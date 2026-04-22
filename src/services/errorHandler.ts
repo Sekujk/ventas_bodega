@@ -121,7 +121,7 @@ export function handleApiError(error: any): ErrorResponse {
   return {
     message: 'Algo salió mal. Intenta de nuevo.',
     code: 'UNKNOWN_ERROR',
-    details: process.env.NODE_ENV === 'development' ? JSON.stringify(error) : undefined,
+    details: import.meta.env.NODE_ENV === 'development' ? JSON.stringify(error) : undefined,
   };
 }
 

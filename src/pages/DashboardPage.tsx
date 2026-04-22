@@ -212,9 +212,9 @@ const DashboardPage: React.FC = () => {
       setLoadingRapidos(true);
       try {
         // Prefix vacio: trae los productos mas comunes del historial.
-        const comunes = await ventasService.getProductSuggestions("");
+        const comunes = (await ventasService.getProductSuggestions("")) as SugerenciaProducto[];
         if (!activo) return;
-        const rapidos = (comunes || []).slice(0, LIMITE_PRODUCTOS_RAPIDOS).map((p) => ({
+        const rapidos = (comunes || []).slice(0, LIMITE_PRODUCTOS_RAPIDOS).map((p: SugerenciaProducto) => ({
           nombre: p.nombre,
           precio: p.precio_sugerido,
         }));

@@ -3,7 +3,7 @@ import { supabase } from "./supabaseClient";
 export const authService = {
   async signUp(email: string, password: string) {
     const { data, error } = await supabase.auth.signUp({
-      email,
+      email: email.trim(),
       password,
     });
     if (error) throw error;
@@ -12,7 +12,7 @@ export const authService = {
 
   async signIn(email: string, password: string) {
     const { data, error } = await supabase.auth.signInWithPassword({
-      email,
+      email: email.trim(),
       password,
     });
     if (error) throw error;
